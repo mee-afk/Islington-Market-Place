@@ -26,7 +26,12 @@ SECRET_KEY = 'django-insecure-op5x%8248fr$t)7da8aou&8^0y$0of36$$tfdx6z2vpf-q^wav
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+  'https://islington-market-place-9c3n.onrender.com', #render url
+  '127.0.0.1', # for local development
+  'localhost',
+]
+
 
 
 # Application definition
@@ -126,8 +131,15 @@ STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [BASE_DIR / "static",]
 
+STATIC_ROOT = BASE_DIR/ 'staticfiiles' # destination for collectstatic
+STATIC_ROOT='whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR/ 'media'
+
+CSRF_TRUSTED_ORIGINS =[
+  'https://islington-market-place-9c3n.onrender.com'
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
